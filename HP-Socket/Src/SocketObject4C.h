@@ -351,7 +351,7 @@ typedef C_HP_ClientListenerT<ITcpClient, ITcpClientListener, sizeof(IPackClient)
 typedef C_HP_ServerListenerT<IUdpServer, IUdpServerListener>						C_HP_UdpServerListener;
 typedef C_HP_ClientListenerT<IUdpClient, IUdpClientListener>						C_HP_UdpClientListener;
 typedef C_HP_ClientListenerT<IUdpCast, IUdpCastListener>							C_HP_UdpCastListener;
-
+#if !defined(NO_HTTP)
 template<class T> class C_HP_HttpListenerT : public IHttpListenerT<T>
 {
 public:
@@ -666,3 +666,4 @@ public:
 	C_HP_HttpClientBaseListener1 m_lsnHttp;
 	C_HP_HttpClientBaseListener2 m_lsnClient;
 };
+#endif

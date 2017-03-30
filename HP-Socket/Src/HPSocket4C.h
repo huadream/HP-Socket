@@ -134,7 +134,7 @@ typedef HP_Object	HP_TcpPackClientListener;
 typedef HP_Object	HP_UdpServerListener;
 typedef HP_Object	HP_UdpClientListener;
 typedef HP_Object	HP_UdpCastListener;
-
+#if !defined(NO_HTTP)
 typedef HP_Object	HP_Http;
 typedef HP_Object	HP_HttpServer;
 typedef HP_Object	HP_HttpAgent;
@@ -144,7 +144,7 @@ typedef HP_Object	HP_HttpSyncClient;
 typedef HP_Object	HP_HttpServerListener;
 typedef HP_Object	HP_HttpAgentListener;
 typedef HP_Object	HP_HttpClientListener;
-
+#endif
 /*****************************************************************************************************************************************************/
 /****************************************************************** TCP/UDP Exports ******************************************************************/
 /*****************************************************************************************************************************************************/
@@ -1114,7 +1114,7 @@ HPSOCKET_API void __stdcall HP_TcpPackClient_SetPackHeaderFlag(HP_TcpPackClient 
 HPSOCKET_API DWORD __stdcall HP_TcpPackClient_GetMaxPackSize(HP_TcpPackClient pClient);
 /* 获取包头标识 */
 HPSOCKET_API USHORT __stdcall HP_TcpPackClient_GetPackHeaderFlag(HP_TcpPackClient pClient);
-
+#if !defined(NO_HTTP)
 /*****************************************************************************************************************************************************/
 /******************************************************************** HTTP Exports *******************************************************************/
 /*****************************************************************************************************************************************************/
@@ -1740,7 +1740,7 @@ HPSOCKET_API DWORD __stdcall HP_HttpSyncClient_GetRequestTimeout(HP_HttpSyncClie
 
 /* 获取响应体 */
 HPSOCKET_API BOOL __stdcall HP_HttpSyncClient_GetResponseBody(HP_HttpSyncClient pClient, LPCBYTE* lpszBody, int* piLength);
-
+#endif
 /*****************************************************************************************************************************************************/
 /*************************************************************** Global Function Exports *************************************************************/
 /*****************************************************************************************************************************************************/
@@ -1794,7 +1794,7 @@ HPSOCKET_API BOOL __stdcall SYS_GetOptimalIPByHostName(LPCTSTR lpszHost, ULONG* 
 HPSOCKET_API ULONGLONG __stdcall SYS_NToH64(ULONGLONG value);
 /* 64 位主机字节序转网络字节序 */
 HPSOCKET_API ULONGLONG __stdcall SYS_HToN64(ULONGLONG value);
-
+#if !defined(NO_HTTP)
 // CP_XXX -> UNICODE
 HPSOCKET_API BOOL __stdcall SYS_CodePageToUnicode(int iCodePage, const char szSrc[], WCHAR szDest[], int* piDestLength);
 // UNICODE -> CP_XXX
@@ -1847,3 +1847,4 @@ HPSOCKET_API DWORD __stdcall SYS_GuessUrlDecodeBound(const BYTE* lpszSrc, DWORD 
 HPSOCKET_API int __stdcall SYS_UrlEncode(BYTE* lpszSrc, DWORD dwSrcLen, BYTE* lpszDest, DWORD* pdwDestLen);
 // URL 解码（返回值：0 -> 成功，-3 -> 输入数据不正确，-5 -> 输出缓冲区不足）
 HPSOCKET_API int __stdcall SYS_UrlDecode(BYTE* lpszSrc, DWORD dwSrcLen, BYTE* lpszDest, DWORD* pdwDestLen);
+#endif
