@@ -42,9 +42,7 @@
   dllmain.cpp
     正在创建库 ..\..\Bin\HPSocket4C\x86\HPSocket4C.lib 和对象 ..\..\Bin\HPSocket4C\x86\HPSocket4C.exp
   正在生成代码
-  422 of 3883 functions (10.9%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    78 functions had inline decision re-evaluated but remain unchanged
+  All 3883 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   已完成代码的生成
   HPSocketDLL4C.vcxproj -> D:\Source\HP-Socket\HP-Socket\Project\HPSocketDLL4C\..\..\Bin\HPSocket4C\x86\HPSocket4C.dll
   HPSocketDLL4C.vcxproj -> ..\..\Bin\HPSocket4C\x86\HPSocket4C.pdb (Full PDB)
